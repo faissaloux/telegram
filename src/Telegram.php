@@ -26,7 +26,7 @@ class Telegram
     public function __construct(?string $token = null, ?HttpClient $httpClient = null, ?string $apiBaseUri = null)
     {
         $this->token = $token;
-        $this->http = $httpClient ?? new HttpClient();
+        $this->http = $httpClient ?? new HttpClient;
         $this->setApiBaseUri($apiBaseUri ?? 'https://api.telegram.org');
     }
 
