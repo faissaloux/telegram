@@ -2,13 +2,12 @@
 
 namespace NotificationChannels\Telegram\Exceptions;
 
-use Exception;
 use GuzzleHttp\Exception\ClientException;
 
 /**
  * Class CouldNotSendNotification.
  */
-class CouldNotSendNotification extends Exception
+class CouldNotSendNotification extends \Exception
 {
     /**
      * Thrown when there's a bad request and an error is responded.
@@ -41,6 +40,8 @@ class CouldNotSendNotification extends Exception
 
     /**
      * Thrown when we're unable to communicate with Telegram.
+     *
+     * @param mixed $message
      *
      * @return static
      */

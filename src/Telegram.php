@@ -2,7 +2,6 @@
 
 namespace NotificationChannels\Telegram;
 
-use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Str;
@@ -23,7 +22,7 @@ class Telegram
     /** @var string Telegram Bot API Base URI */
     protected $apiBaseUri;
 
-    public function __construct(string $token = null, HttpClient $httpClient = null, string $apiBaseUri = null)
+    public function __construct(?string $token = null, ?HttpClient $httpClient = null, ?string $apiBaseUri = null)
     {
         $this->token = $token;
         $this->http = $httpClient ?? new HttpClient();
@@ -183,7 +182,7 @@ class Telegram
             ]);
         } catch (ClientException $exception) {
             throw CouldNotSendNotification::telegramRespondedWithAnError($exception);
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             throw CouldNotSendNotification::couldNotCommunicateWithTelegram($exception);
         }
     }

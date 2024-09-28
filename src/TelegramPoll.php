@@ -2,13 +2,12 @@
 
 namespace NotificationChannels\Telegram;
 
-use JsonSerializable;
 use NotificationChannels\Telegram\Traits\HasSharedLogic;
 
 /**
  * Class TelegramPoll.
  */
-class TelegramPoll implements JsonSerializable
+class TelegramPoll implements \JsonSerializable
 {
     use HasSharedLogic;
 

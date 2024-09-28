@@ -3,13 +3,12 @@
 namespace NotificationChannels\Telegram;
 
 use Illuminate\Support\Facades\View;
-use JsonSerializable;
 use NotificationChannels\Telegram\Traits\HasSharedLogic;
 
 /**
  * Class TelegramMessage.
  */
-class TelegramMessage implements JsonSerializable
+class TelegramMessage implements \JsonSerializable
 {
     use HasSharedLogic;
 
@@ -32,7 +31,7 @@ class TelegramMessage implements JsonSerializable
      *
      * @return $this
      */
-    public function content(string $content, int $limit = null): self
+    public function content(string $content, ?int $limit = null): self
     {
         $this->payload['text'] = $content;
 

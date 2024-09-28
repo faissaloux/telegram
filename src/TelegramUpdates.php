@@ -20,7 +20,7 @@ class TelegramUpdates
      *
      * @return $this
      */
-    public function limit(int $limit = null): self
+    public function limit(?int $limit = null): self
     {
         $this->payload['limit'] = $limit;
 

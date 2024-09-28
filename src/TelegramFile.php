@@ -3,14 +3,13 @@
 namespace NotificationChannels\Telegram;
 
 use Illuminate\Support\Facades\View;
-use JsonSerializable;
 use NotificationChannels\Telegram\Traits\HasSharedLogic;
 use Psr\Http\Message\StreamInterface;
 
 /**
  * Class TelegramFile.
  */
-class TelegramFile implements JsonSerializable
+class TelegramFile implements \JsonSerializable
 {
     use HasSharedLogic;
 
@@ -49,7 +48,7 @@ class TelegramFile implements JsonSerializable
      *
      * @return $this
      */
-    public function file($file, string $type, string $filename = null): self
+    public function file($file, string $type, ?string $filename = null): self
     {
         $this->type = $type;
 
@@ -103,7 +102,7 @@ class TelegramFile implements JsonSerializable
      *
      * @return $this
      */
-    public function document(string $file, string $filename = null): self
+    public function document(string $file, ?string $filename = null): self
     {
         return $this->file($file, 'document', $filename);
     }

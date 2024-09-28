@@ -12,6 +12,7 @@ use NotificationChannels\Telegram\Exceptions\CouldNotSendNotification;
 use NotificationChannels\Telegram\Telegram;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -29,20 +30,20 @@ class TelegramChannelTest extends TestCase
     /** @var TelegramChannel */
     protected $channel;
 
-    /** @var \PHPUnit\Framework\MockObject\MockObject */
+    /** @var MockObject */
     private $dispatcher;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->telegram = Mockery::mock(Telegram::class);
+        $this->telegram = \Mockery::mock(Telegram::class);
         $this->dispatcher = $this->createMock(Dispatcher::class);
         $this->channel = new TelegramChannel($this->telegram, $this->dispatcher);
     }
 
     public function tearDown(): void
     {
-        Mockery::close();
+        \Mockery::close();
         parent::tearDown();
     }
 
